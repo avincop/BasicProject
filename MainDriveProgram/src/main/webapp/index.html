@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4caf50;
+        }
+
+        /* Add some color to the labels */
+        label[for="number"] {
+            color: #4caf50;
+        }
+
+        /* Add a border highlight when input is focused */
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border: 2px solid #4caf50;
+            outline: none;
+        }
+
+        /* Dynamic background color based on the selected operation */
+        #dynamicFeedback {
+            text-align: center;
+            margin-top: 16px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+    <title>Your Form</title>
+</head>
+<body>
+    <form action="Test" >
+        <h2>Choose an Operation</h2>
+        <label for="number">1. Add a Value</label>
+        <label for="number">2. Print Your Value</label>
+        <label for="number">3. Replace a Value</label>
+        <label for="number">4. Delete a Value</label>
+        <label for="number">0. Close</label>
+        
+
+        <label for="number">Operation Number:</label>
+        <input type="number" id="number" name="number" min="0" max="4" required oninput="checknumber()">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter only if Add or Replace or Delete">
+        
+         <label for="name1">Replace Name:</label>
+        <input type="text" id="name1" name="name1" placeholder="Enter only if Replace">
+
+        <input type="submit" value="Submit" onsubmit="onSubmit()">
+
+       
+    </form>
+
+    <script>
+        function checknumber() {
+            var number = document.getElementById('number');
+            var name = document.getElementById('name');
+            var name1= document.getElementById('name1');
+            var numberValue=document.getElementById('number').value;
+            if (number.value === '1' || number.value === '3' || number.value === '4') {
+                name.required = true;
+                 name.disabled= false;
+                
+            } else {
+                name.required = false;
+                name.disabled= true;
+               
+                
+            }
+            if(number.value==='3'){
+				name1.required=true;
+				name1.disabled=false;
+			}
+			else{
+				name1.required=false;
+				name1.disabled=true;
+			}
+			
+        }
+
+        function onSubmit() {
+            var number = document.getElementById('number').value;
+            var dynamicFeedback = document.getElementById('dynamicFeedback');
+            var name = document.getElementById('name').value;
+
+            // Perform dynamic changes based on the selected operation
+            switch (number) {
+                case '1':
+                    dynamicFeedback.innerText = `Added value: ${name}`;
+                    break;
+                case '2':
+                    dynamicFeedback.innerText = `Printed your value`;
+                    break;
+                case '3':
+                    dynamicFeedback.innerText = `Replaced value with: ${name}`;
+                    break;
+                case '4':
+                    dynamicFeedback.innerText = `Deleted a value`;
+                    break;
+                default:
+                    dynamicFeedback.innerText = 'Invalid operation';
+                    break;
+            }
+
+            // Change background color dynamically based on the selected operation
+            dynamicFeedback.style.backgroundColor = getBackgroundColor(number);
+
+            // Prevent form submission
+            return false;
+        }
+
+        function getBackgroundColor(operation) {
+            switch (operation) {
+                case '1':
+                    return '#66bb6a'; // Green for "Add a Value"
+                case '2':
+                    return '#42a5f5'; // Blue for "Print Your Value"
+                case '3':
+                    return '#ef5350'; // Red for "Replace a Value"
+                case '4':
+                    return '#bdbdbd'; // Grey for "Delete a Value"
+                default:
+                    return '#fff'; // Default color
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>HttpSessionLogIn</display-name>
+  <servlet>
+  <servlet-name>HttpSessionLogIn</servlet-name>
+  <servlet-class>MainLogin</servlet-class></servlet>
+  <servlet-mapping>
+  <servlet-name>HttpSessionLogIn</servlet-name>
+  <url-pattern>/Test</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>HttpSessionLogIn1</servlet-name>
+  <servlet-class>MainLogin2</servlet-class></servlet>
+  <servlet-mapping>
+  <servlet-name>HttpSessionLogIn1</servlet-name>
+  <url-pattern>/MainLogin2</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>HttpSessionLogIn2</servlet-name>
+  <servlet-class>LogOut</servlet-class></servlet>
+  <servlet-mapping>
+  <servlet-name>HttpSessionLogIn2</servlet-name>
+  <url-pattern>/LogOut</url-pattern>
+  </servlet-mapping>
+</web-app>

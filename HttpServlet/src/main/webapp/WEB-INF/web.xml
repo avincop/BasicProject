@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+     <display-name>HttpServlet</display-name>
+  <servlet>
+  <description></description>
+  <display-name>HttpServlet</display-name>
+  <servlet-name>HttpServlet</servlet-name>
+  <servlet-class>HttpServletDemo</servlet-class>
+  <init-param>
+  <param-name>Name123</param-name>
+  <param-value>Avinash</param-value>  
+  </init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>HttpServlet</servlet-name>
+  <url-pattern>/Test1</url-pattern>
+  </servlet-mapping>   
+  
+  
+  
+    
+   <servlet>
+  <description></description>
+  <display-name>HttpServlet1</display-name>
+  <servlet-name>ServletDemo1</servlet-name>
+  <servlet-class>HttpServletDemo1</servlet-class></servlet>
+  <servlet-mapping>
+  <servlet-name>ServletDemo1</servlet-name>
+  <url-pattern>/Test2</url-pattern>
+  </servlet-mapping>    
+</web-app>

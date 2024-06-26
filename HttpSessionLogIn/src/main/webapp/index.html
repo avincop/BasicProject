@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script>
+        function checkLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === '' || password === '') {
+                
+                return false;
+            }
+
+            return true;
+        }
+
+        function showProfile() {
+            if (checkLogin()) {
+                alert('Please login first.');
+            } else {
+                alert('Please login first.');
+            }
+        }
+    </script>
+</head>
+<body>
+	
+    <h2>Login Page</h2>
+    <form action="Test" onsubmit="return checkLogin();">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+    <button onclick="showProfile()">Profile</button>
+</body>
+</html>

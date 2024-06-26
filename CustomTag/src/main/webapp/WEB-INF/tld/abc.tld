@@ -1,0 +1,10 @@
+<taglib>
+<tlib-version>1.0</tlib-version>
+<jsp-version>1.2</jsp-version>
+<tag>
+<name>simple</name>
+<tag-class>p1.TagHandler1</tag-class>
+<!-- <body-content>empty</body-content> -->
+<body-content>scriptless</body-content>
+</tag>
+</taglib>
